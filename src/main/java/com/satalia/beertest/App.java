@@ -16,8 +16,10 @@ public class App {
     private final static Location homeLocation = new Location(homelatitude, homelongitude);
     private final static int startingFuel = 2000;
     private final static int earthRadius = 6371000;
-    private final static double tolerantOffset = 1.3;
+    private final static double tolerantOffset = 1.25;
     private final static int reachableRadius = startingFuel / 2;
+    private final static int magicValue = 10;
+    static HashMap<Integer, BreweryLocation> tempList = new HashMap<>();
 
     public static void main(String[] args) {
         List<List<String>> records = new ArrayList<>();
@@ -42,11 +44,36 @@ public class App {
             e.printStackTrace();
         }
 
+        List<List<String>> records3 = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/resources/breweries.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                records3.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         records.remove(0);
         records2.remove(0);
+        records3.remove(0);
 
         List<BreweryLocation> locationList = new ArrayList<>();
         HashMap<Integer, HashSet<String>> beerTypesWithId = new HashMap<>();
+        HashMap<Integer, String> breweryNames = new HashMap<>();
+
+        for (List<String> row : records3) {
+            if (row.get(0).equals(""))
+                continue;
+            if (row.size() != 14)
+                continue;
+            if (row.get(0).matches(".*[a-zA-Z].*"))
+                continue;
+            int breweryId = Integer.parseInt(row.get(0));
+            String breweryName = row.get(1);
+            breweryNames.put(breweryId, breweryName);
+        }
 
         for (List<String> row : records2) {
             if (row.get(0).equals(""))
@@ -70,6 +97,9 @@ public class App {
         for (List<String> row : records) {
             int breweryId = Integer.parseInt(row.get(1));
             HashSet<String> beerTypes = null;
+            String breweryName = null;
+            if (breweryNames.containsKey(breweryId))
+                breweryName = breweryNames.get(breweryId);
             if (beerTypesWithId.containsKey(breweryId))
                 beerTypes = beerTypesWithId.get(breweryId);
             locationList.add(
@@ -77,7 +107,8 @@ public class App {
                             Float.parseFloat(row.get(2)),
                             Float.parseFloat(row.get(3)),
                             breweryId,
-                            beerTypes)
+                            beerTypes,
+                            breweryName)
             );
         }
 
@@ -92,6 +123,8 @@ public class App {
                 reachableArea.put(a.getBrew_id(), a);
             }
         }
+
+        tempList.putAll(reachableArea);
 
         Plane planeData = new Plane(startingFuel, currentLocation, reachableArea);
         PriorityQueue<Logistics> areaNodes = new PriorityQueue<>();
@@ -111,8 +144,9 @@ public class App {
                 case TRAVELLING_TO_AREA:
                     FindNearByNode(planeData);
                     if (planeData.getTargetNode().size() == 1) //nearbynode wasn't found :'( !
-                        planeData.setPlaneMode(Plane.Mode.LOOKING_FOR_AREA);
+                        //planeData.setPlaneMode(Plane.Mode.LOOKING_FOR_AREA);
                         planeData.setPlaneMode(Plane.Mode.SCAVENGING);
+
 
                     if (!FlyToTheTarget(planeData))
                         planeData.setPlaneMode(Plane.Mode.LAST_BREATH);
@@ -191,7 +225,8 @@ public class App {
                     targetBrewery.getLatitude(),
                     targetBrewery.getLongitude(),
                     targetBrewery.getBrew_id(),
-                    targetBrewery.getBeerTypes())
+                    targetBrewery.getBeerTypes(),
+                    targetBrewery.getBreweryName())
             );
 
         reachableArea.remove(targetBrewery.getBrew_id());
@@ -235,7 +270,7 @@ public class App {
             int brewId = reachableNode.getKey();
             BreweryLocation possibleCenter = reachableNode.getValue();
 
-            double radius = (fuel - getDistance(currentLocation, possibleCenter)) / 2;
+            double radius = (fuel - getDistance(currentLocation, possibleCenter)) / magicValue;
             nodesInTheArea = 0;
             tempAreaNodes.clear();
             for (Map.Entry<Integer, BreweryLocation> areaNode : reachableArea.entrySet()) {
@@ -271,7 +306,7 @@ public class App {
 
         System.out.print("BEER JOURNEY: \n0 -> ");
         for (Logistics a : node) {
-            System.out.println(a.getDestinationId() + " (" + a.getDistance() + ")");
+            System.out.println(a.getDestinationId() + " (" + a.getDistance() + "), brewery name: " + tempList.get(a.getDestinationId()).getBreweryName());
             System.out.print(a.getDestinationId() + " -> ");
         }
         double lastTripHome = Math.ceil(getDistance(planeData.getCurrentLocation(), homeLocation));

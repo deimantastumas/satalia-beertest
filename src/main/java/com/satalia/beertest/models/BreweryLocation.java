@@ -4,13 +4,23 @@ import java.util.HashSet;
 
 public class BreweryLocation extends Location {
     private int brew_id;
+    private String breweryName;
     private HashSet<String> beerTypes = new HashSet<>();
 
-    public BreweryLocation(double latitude, double longitude, int brew_id, HashSet<String> beerTypes) {
+    public BreweryLocation(double latitude, double longitude, int brew_id, HashSet<String> beerTypes, String breweryName) {
         super(latitude, longitude);
         this.brew_id = brew_id;
         if (beerTypes != null)
             this.beerTypes.addAll(beerTypes);
+        this.breweryName = breweryName;
+    }
+
+    public String getBreweryName() {
+        return breweryName;
+    }
+
+    public void setBreweryName(String breweryName) {
+        this.breweryName = breweryName;
     }
 
     public HashSet<String> getBeerTypes() {
@@ -18,7 +28,8 @@ public class BreweryLocation extends Location {
     }
 
     public void setBeerTypes(HashSet<String> beerTypes) {
-        this.beerTypes = beerTypes;
+        this.beerTypes.clear();
+        this.beerTypes.addAll(beerTypes);
     }
 
     public int getBrew_id() {
@@ -33,5 +44,7 @@ public class BreweryLocation extends Location {
         this.setLatitude(targetLocation.getLatitude());
         this.setLongitude(targetLocation.getLongitude());
         this.setBrew_id(targetLocation.getBrew_id());
+        this.setBeerTypes(targetLocation.getBeerTypes());
+        this.setBreweryName(targetLocation.getBreweryName());
     }
 }

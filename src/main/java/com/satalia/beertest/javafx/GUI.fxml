@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="440.0" maxWidth="440.0" minHeight="440.0" minWidth="440.0" prefHeight="440.0" prefWidth="440.0" scaleShape="false" snapToPixel="false" style="-fx-background-color: #273c75#273c75;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.satalia.beertest.javafx.Controller">
+   <children>
+      <Label layoutX="151.0" layoutY="28.0" text="beer-test" textFill="#192a56">
+         <font>
+            <Font name="Arial" size="35.0" />
+         </font>
+      </Label>
+      <TextField layoutX="71.0" layoutY="113.0" prefHeight="27.0" prefWidth="145.0" style="-fx-background-color: #192a56#192a56;" />
+      <Label layoutX="100.0" layoutY="96.0" text="home latitude" textFill="#44bd32" />
+      <TextField layoutX="224.0" layoutY="113.0" prefHeight="27.0" prefWidth="145.0" style="-fx-background-color: #192a56#192a56;" />
+      <Label layoutX="247.0" layoutY="96.0" text="home longitude" textFill="#44bd32" />
+      <ScrollPane layoutX="225.0" layoutY="191.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56;">
+         <content>
+            <AnchorPane prefHeight="198.0" prefWidth="198.0" style="-fx-background-color: #192a56#192a56;" />
+         </content>
+      </ScrollPane>
+      <ScrollPane layoutX="15.0" layoutY="191.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56;">
+         <content>
+            <AnchorPane prefHeight="198.0" prefWidth="198.0" style="-fx-background-color: #192a56#192a56;" />
+         </content>
+      </ScrollPane>
+      <Button layoutX="15.0" layoutY="399.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56 #192a56#192a56;" text="find route" textFill="#f5f6fa" />
+      <Label layoutX="63.0" layoutY="171.0" text="visited breweries" textFill="#44bd32" />
+      <Label layoutX="262.0" layoutY="171.0" text="collected beer types" textFill="#44bd32" />
+      <Button layoutX="225.0" layoutY="399.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56 #192a56#192a56;" text="extra settings" textFill="#f5f6fa" />
+   </children>
+</AnchorPane>
