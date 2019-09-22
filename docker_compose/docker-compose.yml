@@ -1,0 +1,13 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+  qgMySQLServer:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: deimantas
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: beertest
+    ports:
+    - "3306:3306"

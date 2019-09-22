@@ -2,35 +2,47 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="440.0" maxWidth="440.0" minHeight="440.0" minWidth="440.0" prefHeight="440.0" prefWidth="440.0" scaleShape="false" snapToPixel="false" style="-fx-background-color: #273c75#273c75;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.satalia.beertest.javafx.Controller">
-   <children>
-      <Label layoutX="151.0" layoutY="28.0" text="beer-test" textFill="#192a56">
-         <font>
-            <Font name="Arial" size="35.0" />
-         </font>
-      </Label>
-      <TextField layoutX="71.0" layoutY="113.0" prefHeight="27.0" prefWidth="145.0" style="-fx-background-color: #192a56#192a56;" />
-      <Label layoutX="100.0" layoutY="96.0" text="home latitude" textFill="#44bd32" />
-      <TextField layoutX="224.0" layoutY="113.0" prefHeight="27.0" prefWidth="145.0" style="-fx-background-color: #192a56#192a56;" />
-      <Label layoutX="247.0" layoutY="96.0" text="home longitude" textFill="#44bd32" />
-      <ScrollPane layoutX="225.0" layoutY="191.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56;">
-         <content>
-            <AnchorPane prefHeight="198.0" prefWidth="198.0" style="-fx-background-color: #192a56#192a56;" />
-         </content>
-      </ScrollPane>
-      <ScrollPane layoutX="15.0" layoutY="191.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56;">
-         <content>
-            <AnchorPane prefHeight="198.0" prefWidth="198.0" style="-fx-background-color: #192a56#192a56;" />
-         </content>
-      </ScrollPane>
-      <Button layoutX="15.0" layoutY="399.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56 #192a56#192a56;" text="find route" textFill="#f5f6fa" />
-      <Label layoutX="63.0" layoutY="171.0" text="visited breweries" textFill="#44bd32" />
-      <Label layoutX="262.0" layoutY="171.0" text="collected beer types" textFill="#44bd32" />
-      <Button layoutX="225.0" layoutY="399.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #192a56#192a56 #192a56#192a56;" text="extra settings" textFill="#f5f6fa" />
-   </children>
+<AnchorPane maxHeight="440.0" maxWidth="679.0" minHeight="440.0" minWidth="570.0" prefHeight="440.0" prefWidth="740.0"
+            scaleShape="false" snapToPixel="false" style="-fx-background-color: #273c75#273c75;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.satalia.beertest.javafx.Controller">
+   <Label layoutX="264.0" layoutY="31.0" text="beer-test" textFill="#192a56">
+      <font>
+         <Font name="Arial" size="35.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="tf_latitude" alignment="CENTER" layoutX="190.0" layoutY="116.0" prefHeight="27.0" prefWidth="145.0"
+              style="-fx-text-fill: #009432#009432; -fx-background-color: #192a56#192a56;" text="51.74250300"/>
+   <Label layoutX="221.0" layoutY="99.0" text="home latitude" textFill="#1b1464"/>
+   <TextField fx:id="tf_longitude" alignment="CENTER" layoutX="346.0" layoutY="116.0" prefHeight="27.0"
+              prefWidth="145.0"
+              style="-fx-background-color: #192a56#192a56; -fx-text-fill: #009432#009432 #009432#009432;"
+              text="19.43295600"/>
+   <Label layoutX="371.0" layoutY="99.0" text="home longitude" textFill="#1b1464"/>
+   <ScrollPane layoutX="355.0" layoutY="191.0" prefHeight="200.0" prefWidth="300.0"
+               style="-fx-background-color: #192a56#192a56;">
+      <VBox fx:id="vb_collectedBeer" prefHeight="198.0" prefWidth="298.0"
+            style="-fx-background-color: #192a56#192a56 #192a56#192a56 #192a56#192a56 #192a56#192a56; -fx-text-fill: #009432#009432 #009432#009432;"/>
+   </ScrollPane>
+   <ScrollPane layoutX="24.0" layoutY="191.0" prefHeight="200.0" prefWidth="300.0"
+               style="-fx-background-color: #192a56#192a56;">
+      <VBox fx:id="vb_visitedBrews" prefHeight="198.0" prefWidth="298.0"
+            style="-fx-background-color: #192a56#192a56 #192a56#192a56 #192a56#192a56 #192a56#192a56; -fx-text-fill: #009432#009432 #009432#009432;"/>
+   </ScrollPane>
+   <Button layoutX="24.0" layoutY="397.0" mnemonicParsing="false" onAction="#findRoute" prefHeight="27.0"
+           prefWidth="200.0" style="-fx-background-color: #192a56#192a56 #192a56#192a56;" text="find route"
+           textFill="#f5f6fa"/>
+   <Label layoutX="24.0" layoutY="174.0" text="visited breweries" textFill="#1b1464"/>
+   <Label layoutX="529.0" layoutY="174.0" text="collected beer types" textFill="#1b1464"/>
+   <RadioButton fx:id="rb_brews" layoutX="233.0" layoutY="402.0" mnemonicParsing="false"
+                onAction="#selectPriority_brews" selected="true" text="Priority for breweries" textFill="WHITE"/>
+   <RadioButton fx:id="rb_beerTypes" layoutX="407.0" layoutY="401.0" mnemonicParsing="false"
+                onAction="#selectPriority_beerTypes" text="Priority for beer types" textFill="WHITE"/>
 </AnchorPane>

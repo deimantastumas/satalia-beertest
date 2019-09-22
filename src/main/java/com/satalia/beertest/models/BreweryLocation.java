@@ -19,7 +19,7 @@ public class BreweryLocation extends Location {
         return breweryName;
     }
 
-    public void setBreweryName(String breweryName) {
+    private void setBreweryName(String breweryName) {
         this.breweryName = breweryName;
     }
 
@@ -36,7 +36,7 @@ public class BreweryLocation extends Location {
         return brew_id;
     }
 
-    public void setBrew_id(int brew_id) {
+    private void setBrew_id(int brew_id) {
         this.brew_id = brew_id;
     }
 
