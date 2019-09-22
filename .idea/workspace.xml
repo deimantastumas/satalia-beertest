@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6c114a3-52f9-4a5d-9ddf-009ec83928c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/beertest-nogui.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/beer-test-0.1-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/CSVDump.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/MySQLConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/Parameters.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/javafx/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/javafx/GUIApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/BreweryLocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Location.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Logistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane$Mode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,7 +33,7 @@
           <entry key="class" value="2" />
           <entry key="csv" value="9" />
           <entry key="fxml" value="3" />
-          <entry key="java" value="25" />
+          <entry key="java" value="26" />
           <entry key="md" value="1" />
           <entry key="oot" value="1" />
           <entry key="properties" value="1" />
@@ -66,7 +48,7 @@
           <entry key="CSV" value="9" />
           <entry key="DBN-SQL" value="5" />
           <entry key="Dockerfile" value="2" />
-          <entry key="JAVA" value="25" />
+          <entry key="JAVA" value="26" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="2" />
@@ -79,7 +61,7 @@
           <entry key="Dockerfile" value="142" />
           <entry key="dummy" value="33" />
           <entry key="fxml" value="11" />
-          <entry key="java" value="9546" />
+          <entry key="java" value="9548" />
           <entry key="md" value="674" />
           <entry key="properties" value="23" />
           <entry key="sql" value="15" />
@@ -91,7 +73,7 @@
         <counts>
           <entry key="DBN-SQL" value="15" />
           <entry key="Dockerfile" value="104" />
-          <entry key="JAVA" value="9546" />
+          <entry key="JAVA" value="9548" />
           <entry key="Markdown" value="674" />
           <entry key="PLAIN_TEXT" value="71" />
           <entry key="Properties" value="23" />
@@ -149,8 +131,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="240">
-                <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="40" />
+              <first_editor relative-caret-position="300">
+                <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               </first_editor>
               <second_editor />
             </state>
@@ -240,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/Logistics.java" />
         <option value="$PROJECT_DIR$/db1-backup.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/resources/MySQLConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/stack.yml" />
         <option value="$PROJECT_DIR$/docker_compose/docker_compose.yml" />
@@ -259,6 +240,7 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java" />
       </list>
     </option>
   </component>
@@ -575,13 +557,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/DockerStuff/DockerFile" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/DockerStuff/DockerTesting.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1232">
-          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/Plane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-393">
@@ -678,11 +653,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1012">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="240">
-            <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="40" />
+          <first_editor relative-caret-position="300">
+            <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           </first_editor>
           <second_editor />
         </state>
