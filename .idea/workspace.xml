@@ -2,31 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6c114a3-52f9-4a5d-9ddf-009ec83928c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/CSVDump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/MySQLConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/Parameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/DockerStuff/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/DockerStuff/DockerTesting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/GUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/BreweryLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/BreweryLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/beer-test-0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/beer-test-0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Settings.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/DockerStuff/DockerTesting.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/javafx/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/javafx/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/BreweryLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/BreweryLocation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane$Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane$Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/satalia/beertest/models/Plane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,7 +38,7 @@
           <entry key="class" value="2" />
           <entry key="csv" value="9" />
           <entry key="fxml" value="3" />
-          <entry key="java" value="23" />
+          <entry key="java" value="25" />
           <entry key="oot" value="1" />
           <entry key="properties" value="1" />
           <entry key="sql" value="6" />
@@ -70,7 +52,7 @@
           <entry key="CSV" value="9" />
           <entry key="DBN-SQL" value="4" />
           <entry key="Dockerfile" value="2" />
-          <entry key="JAVA" value="23" />
+          <entry key="JAVA" value="25" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Properties" value="1" />
           <entry key="SQL" value="2" />
@@ -83,10 +65,10 @@
           <entry key="Dockerfile" value="142" />
           <entry key="dummy" value="33" />
           <entry key="fxml" value="11" />
-          <entry key="java" value="7781" />
+          <entry key="java" value="9525" />
           <entry key="properties" value="23" />
           <entry key="sql" value="1" />
-          <entry key="xml" value="130" />
+          <entry key="xml" value="132" />
           <entry key="yml" value="353" />
         </counts>
       </usages-collector>
@@ -94,10 +76,10 @@
         <counts>
           <entry key="DBN-SQL" value="1" />
           <entry key="Dockerfile" value="104" />
-          <entry key="JAVA" value="7781" />
+          <entry key="JAVA" value="9525" />
           <entry key="PLAIN_TEXT" value="71" />
           <entry key="Properties" value="23" />
-          <entry key="XML" value="141" />
+          <entry key="XML" value="143" />
           <entry key="YAML" value="353" />
         </counts>
       </usages-collector>
@@ -120,20 +102,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="-22">
+              <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
               <folding>
-                <element signature="method#Start#0;class#App#0" />
-                <element signature="method#FindRoute#0;class#App#0" />
-                <element signature="method#getReachableBreweries#0;class#App#0" />
-                <element signature="method#FindClosest#0;class#App#0" />
-                <element signature="method#FindClosestFromArea#0;class#App#0" />
-                <element signature="method#FlyToTheTarget#0;class#App#0" />
-                <element signature="method#FindNearByNode#0;class#App#0" />
-                <element signature="method#FindDenseArea#0;class#App#0" />
-                <element signature="method#getDistance#0;class#App#0" />
-                <element signature="method#calculateDistance#0;class#App#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1910#1911#0" expanded="true" />
+                <element signature="e#1944#1945#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/Parameters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="58" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -159,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+            <state relative-caret-position="241">
+              <caret line="93" column="28" selection-start-line="35" selection-start-column="8" selection-end-line="93" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+            <state relative-caret-position="238">
+              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -181,19 +165,7 @@
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/GUIApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="23" column="42" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -263,10 +235,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/Plane.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/MySQLConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/BreweryLocation.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/GUIApp.java" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Controller.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/satalia/beertest/App.java" />
       </list>
     </option>
@@ -396,7 +368,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569153903507" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569158389868" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -428,7 +400,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GUIApp">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.satalia.beertest.App" />
       <module name="satalia-beertest" />
@@ -494,9 +466,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.GUIApp" />
         <item itemvalue="JAR Application.beer-test-0.1.jar" />
-        <item itemvalue="Application.App" />
         <item itemvalue="Application.MySQLConnection" />
         <item itemvalue="Application.CSVDump" />
       </list>
@@ -531,7 +503,7 @@
       <window_info id="Job Explorer" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34452555" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36934307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.22481751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -550,7 +522,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.20840065" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.20840065" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -662,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/Parameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/com/satalia/beertest/javafx/GUIApp.class">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -685,24 +650,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/BreweryLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+        <state relative-caret-position="-17">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="33" lean-forward="true" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/models/BreweryLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -718,29 +676,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/javafx/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        <state relative-caret-position="241">
+          <caret line="93" column="28" selection-start-line="35" selection-start-column="8" selection-end-line="93" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/Parameters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="58" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satalia/beertest/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="-22">
+          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
           <folding>
-            <element signature="method#Start#0;class#App#0" />
-            <element signature="method#FindRoute#0;class#App#0" />
-            <element signature="method#getReachableBreweries#0;class#App#0" />
-            <element signature="method#FindClosest#0;class#App#0" />
-            <element signature="method#FindClosestFromArea#0;class#App#0" />
-            <element signature="method#FlyToTheTarget#0;class#App#0" />
-            <element signature="method#FindNearByNode#0;class#App#0" />
-            <element signature="method#FindDenseArea#0;class#App#0" />
-            <element signature="method#getDistance#0;class#App#0" />
-            <element signature="method#calculateDistance#0;class#App#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1910#1911#0" expanded="true" />
+            <element signature="e#1944#1945#0" expanded="true" />
           </folding>
         </state>
       </provider>

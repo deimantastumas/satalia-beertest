@@ -4,7 +4,6 @@ import com.satalia.beertest.models.BreweryLocation;
 import com.satalia.beertest.models.Location;
 import com.satalia.beertest.models.Logistics;
 import com.satalia.beertest.models.Plane;
-
 import java.sql.SQLException;
 import java.util.*;
 
@@ -13,9 +12,37 @@ public class App {
     private static HashMap<Integer, HashMap<Integer, Double>> distances = new HashMap<>();
     public static MySQLConnection database = new MySQLConnection();
     private static Plane winnerPlane;
+    private static double executionTime;
 
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws SQLException {
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter home latitude (0 - 51.74250300):");
+        double homeLatitude = Double.parseDouble(myObj.nextLine());
+
+        System.out.println("Enter home longitude (0 - 19.43295600):");
+        double homelongitude = Double.parseDouble(myObj.nextLine());
+
+        System.out.println("Enter your priority (0 - more breweries, 1 - more beer types):");
+        int temp = Integer.parseInt(myObj.nextLine());
+        boolean priority = temp == 0;
+
+        if (homeLatitude == 0)
+            homeLatitude = 51.74250300;
+        if (homelongitude == 0)
+            homelongitude = 19.43295600;
+
+        long startTime = System.nanoTime();
+        boolean routeFound = Start(new Location(homeLatitude, homelongitude), priority);
+        long endTime = System.nanoTime();
+        executionTime = (double)(endTime - startTime) / 1000000000;
+
+        printResults(executionTime, routeFound);
+        System.out.println("\nTry different location? (0 - no, 1 - yes):");
+        boolean again = Integer.parseInt(myObj.nextLine()) == 1;
+
+        if (again) {
+            main(null);
+        }
     }
 
     public static boolean Start(Location home, boolean priority) throws SQLException {
@@ -295,5 +322,38 @@ public class App {
         double second1 = Math.cos(lat1)*Math.cos(lat2);
         double second = second1 * second2;
         return (2*Parameters.earthRadius*Math.asin(Math.sqrt(first + second)) / 1000);
+    }
+
+    private static void printResults(double executionTime, boolean routeFound) throws SQLException {
+        if (!routeFound) {
+            System.out.println("No reachable brewerious were found! Try different starting location");
+            return;
+        }
+
+        Stack<Logistics> node = winnerPlane.getVisitedBreweries();
+        System.out.println("\nTrip journal:\n");
+        System.out.printf("%-8s%-8s%-10s%s\n", "From", "To", "Distance", "Brewery name");
+        System.out.printf("%-8s%-8s%-10s%s\n", "----", "--", "--------", "------------");
+        System.out.printf("%-8s", "Home");
+
+        for (Logistics a : node) {
+            int brewId = a.getDestinationId();
+            System.out.printf("%-8d%-10s%s\n", brewId, (int)a.getDistance() + "km.", App.database.getBreweryName(brewId));
+            System.out.printf("%-8d", brewId);
+        }
+        double lastTripHome = Math.ceil(App.getDistance(winnerPlane.getCurrentLocation(), homeLocation));
+        winnerPlane.setFuelLeft((int) (winnerPlane.getFuelLeft() - lastTripHome));
+        System.out.printf("%-8s%-10s\n", "Home", (int)lastTripHome + "km.");
+        System.out.println("\nVisited breweries:");
+
+        HashSet<String> beer = winnerPlane.getCollectedBeerTypes();
+        for (String a : beer)
+            System.out.printf(" -> %s\n", a);
+
+        System.out.println("\nInformation about the trip:");
+        System.out.println("Breweries visited: " + winnerPlane.getVisitedBreweries().size());
+        System.out.println("Different beer types collected: " + winnerPlane.getCollectedBeerTypes().size());
+        System.out.println("Fuel left: " + winnerPlane.getFuelLeft());
+        System.out.println("Calculation time: " + executionTime);
     }
 }
