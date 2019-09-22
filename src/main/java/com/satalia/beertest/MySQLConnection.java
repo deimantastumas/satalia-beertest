@@ -11,7 +11,7 @@ public class MySQLConnection {
     private PreparedStatement preparedStatement = null;
     private ResultSet results = null;
 
-    void ConnectToDatabase() throws SQLException {
+    void ConnectToDatabase() throws SQLException, ClassNotFoundException {
         // Setup the connection with the DB
         connect = DriverManager
                 .getConnection("jdbc:mysql://127.0.0.1:3306/beertest?"

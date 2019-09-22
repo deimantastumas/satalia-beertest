@@ -1,0 +1,15 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+  qgMySQLServer:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: deimantas
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: beertest
+    volumes:
+    - ./src/main/java/com/satalia/beertest/resources:/docker-entrypoint-initdb.d
+    ports:
+    - "3306:3306"

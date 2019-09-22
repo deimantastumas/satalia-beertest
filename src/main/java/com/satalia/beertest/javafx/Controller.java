@@ -27,7 +27,7 @@ public class Controller {
     @FXML VBox vb_visitedBrews = new VBox();
     private boolean priority = true; // true - brews, false - beer
 
-    public void findRoute() throws SQLException {
+    public void findRoute() throws SQLException, ClassNotFoundException {
         vb_collectedBeer.getChildren().clear();
         vb_visitedBrews.getChildren().clear();
         Location homeLocation = new Location((Double.parseDouble(tf_latitude.getText())),

@@ -14,7 +14,7 @@ public class App {
     private static Plane winnerPlane;
     private static double executionTime;
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter home latitude (0 - 51.74250300):");
         double homeLatitude = Double.parseDouble(myObj.nextLine());
@@ -45,7 +45,7 @@ public class App {
         }
     }
 
-    public static boolean Start(Location home, boolean priority) throws SQLException {
+    public static boolean Start(Location home, boolean priority) throws SQLException, ClassNotFoundException {
         homeLocation = home;
         database.ConnectToDatabase();
         return FindRoute(priority);
