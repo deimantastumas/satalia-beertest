@@ -7,17 +7,20 @@ Program accepts following inputs:
  - Home location (latitude, longitude)
  - Priority (breweries or beer types)
  
- Program uses Docker to run MySQL inside a container.
+ Program uses Docker to run MySQL inside a container. 
  
 # Requirements:
- - Docker launcher
- - Java
+ - docker-compose https://docs.docker.com/compose/
+ - JDK*
  
 # Usage
 Install docker launcher, clone the project and run following commands:
- - docker-compose up
- - java -jar beertest-nogui.jar
+ - "docker-compose up -d" - runs mysql server inside a docker container. Initially loads .sql dump.
+ 
+ - "java -jar beer-test.jar"
  
 Source code also has a GUI version, however it had some problems so I decided to stick with console.
+
+ *Project was intended to run without JDK (using another docker container containing OpenJDK). Sadly it failed to connect to mysql server :(
  
  

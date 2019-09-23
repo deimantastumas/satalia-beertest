@@ -1,6 +1,7 @@
 com/satalia/beertest/models/Location.class
 com/satalia/beertest/models/Logistics.class
 com/satalia/beertest/App.class
+com/satalia/beertest/utilities/Haversine.class
 com/satalia/beertest/utilities/Printer.class
 com/satalia/beertest/utilities/MySQLConnection.class
 com/satalia/beertest/models/BreweryLocation.class

@@ -8,29 +8,60 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+import static com.satalia.beertest.utilities.Haversine.calculateDistance;
 import static com.satalia.beertest.utilities.Parameters.*;
 import static com.satalia.beertest.utilities.Parameters.getMagicValue;
 
 public class SearchingAlgorithm {
 
+    /**
+     * Used for getDistance() optimization. Stores all queried distances
+     */
     private static HashMap<Integer, HashMap<Integer, Double>> distances = new HashMap<>();
     private static MySQLConnection database;
-    private static Plane winnerPlane;
-    private static Location homeLocation;
 
-    public static Results FindRoute(boolean priority, Location homeLocation) throws SQLException {
-        SearchingAlgorithm.homeLocation = homeLocation;
-        distances.clear();
+    /**
+     * Object containing travel information, which will be used in results output
+     */
+    private static Plane winnerPlane;
+
+    /**
+     * Initializes class for connecting with database
+     * @return all elements from 'breweries' table
+     * @throws SQLException MySQL connection failure
+     */
+    private static ArrayList<BreweryLocation> initData() throws SQLException {
         database = new MySQLConnection();
+        return database.getBreweries();
+    }
+
+    /**
+     *
+     * @param priority Shows which heuristic value is more important. true - beer types, false - breweries
+     * @param homeLocation Object containing starting location
+     * @return Object containing all needed information for output
+     * @throws SQLException MySQL connection failure
+     */
+    public static Results FindRoute(boolean priority, Location homeLocation) throws SQLException {
+        distances.clear();
+        ArrayList<BreweryLocation> locationList = initData();
+        HashMap<Integer, BreweryLocation> copyList = new HashMap<>(getReachableBreweries(locationList, homeLocation));
+
+        return FindRoute(priority, copyList, homeLocation);
+    }
+
+    /**
+     *
+     * @param copyList Map containing all reachable locations.
+     *                 Key - brewery ID, value - breweryLocation object
+     * @return Object containing all needed information for output
+     */
+    static Results FindRoute(boolean priority, HashMap<Integer, BreweryLocation> copyList, Location homeLocation) {
+        HashMap<Integer, BreweryLocation> reachableArea;
         Plane planeData;
         Location currentLocation;
-        ArrayList<BreweryLocation> locationList;
 
-        locationList = database.getBreweries();
-        HashMap<Integer, BreweryLocation> reachableArea;
-        HashMap<Integer, BreweryLocation> copyList = new HashMap<>(getReachableBreweries(locationList));
-
-        if (copyList.size() == 0)
+        if (copyList == null || copyList.size() == 0)
             return new Results(false, null);
 
         PriorityQueue<Logistics> areaNodes;
@@ -111,7 +142,13 @@ public class SearchingAlgorithm {
         return new Results(true, winnerPlane);
     }
 
-    private static HashMap<Integer, BreweryLocation> getReachableBreweries(ArrayList<BreweryLocation> locationList) throws SQLException {
+    /**
+     * @param locationList List containing breweries from database
+     * @param homeLocation Object containing starting location
+     * @return map containing only those breweryLocation objects, which are reachable from home location
+     * @throws SQLException MySQL connection failure
+     */
+    private static HashMap<Integer, BreweryLocation> getReachableBreweries(ArrayList<BreweryLocation> locationList, Location homeLocation) throws SQLException {
         HashMap<Integer, BreweryLocation> reachableBrews = new HashMap<>();
 
         for (BreweryLocation a : locationList) {
@@ -125,6 +162,11 @@ public class SearchingAlgorithm {
         return reachableBrews;
     }
 
+    /**
+     * Finds nearest brewery
+     * @param planeData Plane object containing information about the trip.
+     *                  Nearest brewery gets stored inside this object
+     */
     private static void FindClosest(Plane planeData) {
         PriorityQueue<Logistics> closestBrewery = new PriorityQueue<>();
         HashMap<Integer, BreweryLocation> reachableArea = planeData.getReachableArea();
@@ -140,6 +182,11 @@ public class SearchingAlgorithm {
         planeData.setTargetNode(closestBrewery.poll());
     }
 
+    /**
+     * Finds nearest brewery from specified area
+     * @param areaNodes specified area containing breweryLocation objects
+     * @param planeData object containing information about the trip.
+     */
     private static void FindClosestFromArea(PriorityQueue<Logistics> areaNodes, Plane planeData) {
         PriorityQueue<Logistics> tempNodes = new PriorityQueue<>();
         HashMap<Integer, BreweryLocation> reachableArea = planeData.getReachableArea();
@@ -155,6 +202,11 @@ public class SearchingAlgorithm {
         planeData.setTargetNode(areaNodes.poll());
     }
 
+    /**
+     * Moves plane from current to target location. Changes all needed values inside plane object
+     * @param planeData object containing information about the trip.
+     * @return true if plane was able to reach the target, false - otherwise.
+     */
     private static boolean FlyToTheTarget(Plane planeData) {
         HashMap<Integer, BreweryLocation> reachableArea = planeData.getReachableArea();
         Logistics targetLocation = planeData.getTargetNode().pop();
@@ -162,7 +214,7 @@ public class SearchingAlgorithm {
         BreweryLocation targetBrewery = reachableArea.get(targetLocation.getDestinationId());
 
         double dist_currentToTarget = Math.ceil(getDistance(currentLocation, targetBrewery));
-        double dist_targetToHome = Math.ceil(getDistance(targetBrewery, homeLocation));
+        double dist_targetToHome = Math.ceil(getDistance(targetBrewery, planeData.getHomeLocation()));
         int fuel = planeData.getFuelLeft();
 
         if (fuel < Math.ceil(dist_currentToTarget) || fuel < dist_currentToTarget + dist_targetToHome)
@@ -188,6 +240,10 @@ public class SearchingAlgorithm {
         return true;
     }
 
+    /**
+     * Finds nearest brewery while not sidetracking from target destination for too far.
+     * @param planeData object containing information about the trip.
+     */
     private static void FindNearByNode(Plane planeData) {
         PriorityQueue<Logistics> alongTheWayNodes = new PriorityQueue<>();
         Location currentLocation = planeData.getCurrentLocation();
@@ -211,6 +267,13 @@ public class SearchingAlgorithm {
             planeData.setTargetNode(alongTheWayNodes.poll());
     }
 
+    /**
+     * Finds most promising area containing most breweries in specified radius.
+     * Magic value from properties is used for determining radius
+     * @param areaNodes Area containing the most breweries.
+     *                  First elements from priority queue will be the nearest brewery
+     * @param planeData object containing information about the trip.
+     */
     private static void FindDenseArea(PriorityQueue<Logistics> areaNodes, Plane planeData) {
         Location currentLocation = planeData.getCurrentLocation();
         HashMap<Integer, BreweryLocation> reachableArea = planeData.getReachableArea();
@@ -257,6 +320,14 @@ public class SearchingAlgorithm {
         planeData.setTargetNode(areaNodes.poll());
     }
 
+    /**
+     * Uses Haversine formula to find distance between two points.
+     * If 'distances' structure already contains needed distance, it will be returned without calculations.
+     * If 'distances' structore doesn't contain needed distance, value will be calculated and then stored.
+     * @param loc1 Location A
+     * @param loc2 Location B
+     * @return distance between two points
+     */
     public static double getDistance(Location loc1, Location loc2) {
         if (loc1 instanceof BreweryLocation && loc2 instanceof BreweryLocation) {
             int brewId1 = ((BreweryLocation) loc1).getBrew_id();
@@ -275,18 +346,5 @@ public class SearchingAlgorithm {
             return distances.get(brewId1).get(brewId2);
         }
         return calculateDistance(loc1, loc2);
-    }
-
-    private static double calculateDistance(Location loc1, Location loc2) {
-        double lat1 = loc1.getLatitude() * Math.PI / 180;
-        double long1 = loc1.getLongitude() * Math.PI / 180;
-        double lat2 = loc2.getLatitude() * Math.PI / 180;
-        double long2 = loc2.getLongitude() * Math.PI / 180;
-
-        double first = Math.pow(Math.sin((lat2 - lat1) / 2), 2);
-        double second2 = Math.pow(Math.sin((long2 - long1) / 2), 2);
-        double second1 = Math.cos(lat1)*Math.cos(lat2);
-        double second = second1 * second2;
-        return (2*getEarthRadius()*Math.asin(Math.sqrt(first + second)) / 1000);
     }
 }
