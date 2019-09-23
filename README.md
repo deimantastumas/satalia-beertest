@@ -14,7 +14,7 @@ Program accepts following inputs:
  - Java
  
 # Usage
-Install docker launcher, clone the project and run following commands:
+Install docker launcher, clone the project and run the following commands:
  - docker-compose up
  - java -jar beertest-nogui.jar
  

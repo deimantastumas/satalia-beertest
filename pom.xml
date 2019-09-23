@@ -22,7 +22,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.satalia.beertest.javafx.GUIApp</mainClass>
+                            <mainClass>com.satalia.beertest.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

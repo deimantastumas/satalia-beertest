@@ -1,0 +1,11 @@
+com/satalia/beertest/models/Location.class
+com/satalia/beertest/models/Logistics.class
+com/satalia/beertest/App.class
+com/satalia/beertest/models/Plane$Mode.class
+com/satalia/beertest/models/Plane.class
+com/satalia/beertest/Parameters.class
+com/satalia/beertest/MySQLConnection.class
+com/satalia/beertest/App$1.class
+com/satalia/beertest/models/BreweryLocation.class
+com/satalia/beertest/javafx/GUIApp.class
+com/satalia/beertest/javafx/Controller.class

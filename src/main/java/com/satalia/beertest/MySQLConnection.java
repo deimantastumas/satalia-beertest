@@ -11,10 +11,10 @@ public class MySQLConnection {
     private PreparedStatement preparedStatement = null;
     private ResultSet results = null;
 
-    void ConnectToDatabase() throws SQLException, ClassNotFoundException {
+    void ConnectToDatabase() throws SQLException {
         // Setup the connection with the DB
         connect = DriverManager
-                .getConnection("jdbc:mysql://127.0.0.1:3306/beertest?"
+                .getConnection("jdbc:mysql://localhost:3306/beertest?"
                         + "user=root&password=root");
     }
 

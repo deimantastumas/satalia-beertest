@@ -2,7 +2,7 @@
 version: '2'
 
 services:
-  qgMySQLServer:
+  db:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -13,3 +13,11 @@ services:
     - ./src/main/java/com/satalia/beertest/resources:/docker-entrypoint-initdb.d
     ports:
     - "3306:3306"
+  java:
+    image: openjdk:latest
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    command: java -jar exp_jar.jar

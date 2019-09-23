@@ -4,7 +4,11 @@ import com.satalia.beertest.models.BreweryLocation;
 import com.satalia.beertest.models.Location;
 import com.satalia.beertest.models.Logistics;
 import com.satalia.beertest.models.Plane;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 
 public class App {
@@ -15,34 +19,43 @@ public class App {
     private static double executionTime;
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter home latitude (0 - 51.74250300):");
-        double homeLatitude = Double.parseDouble(myObj.nextLine());
 
-        System.out.println("Enter home longitude (0 - 19.43295600):");
-        double homelongitude = Double.parseDouble(myObj.nextLine());
+        System.out.println("testing mysql connection");
+        Connection connect = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/beertest?"
+                        + "user=root&password=root");
 
-        System.out.println("Enter your priority (0 - more breweries, 1 - more beer types):");
-        int temp = Integer.parseInt(myObj.nextLine());
-        boolean priority = temp == 0;
+        Statement statement = connect.createStatement();
+        statement.execute("select * from breweries");
 
-        if (homeLatitude == 0)
-            homeLatitude = 51.74250300;
-        if (homelongitude == 0)
-            homelongitude = 19.43295600;
-
-        long startTime = System.nanoTime();
-        boolean routeFound = Start(new Location(homeLatitude, homelongitude), priority);
-        long endTime = System.nanoTime();
-        executionTime = (double)(endTime - startTime) / 1000000000;
-
-        printResults(executionTime, routeFound);
-        System.out.println("\nTry different location? (0 - no, 1 - yes):");
-        boolean again = Integer.parseInt(myObj.nextLine()) == 1;
-
-        if (again) {
-            main(null);
-        }
+//        Scanner myObj = new Scanner(System.in);
+//        System.out.println("Enter home latitude (0 - 51.74250300):");
+//        double homeLatitude = Double.parseDouble(myObj.nextLine());
+//
+//        System.out.println("Enter home longitude (0 - 19.43295600):");
+//        double homelongitude = Double.parseDouble(myObj.nextLine());
+//
+//        System.out.println("Enter your priority (0 - more breweries, 1 - more beer types):");
+//        int temp = Integer.parseInt(myObj.nextLine());
+//        boolean priority = temp == 0;
+//
+//        if (homeLatitude == 0)
+//            homeLatitude = 51.74250300;
+//        if (homelongitude == 0)
+//            homelongitude = 19.43295600;
+//
+//        long startTime = System.nanoTime();
+//        boolean routeFound = Start(new Location(homeLatitude, homelongitude), priority);
+//        long endTime = System.nanoTime();
+//        executionTime = (double)(endTime - startTime) / 1000000000;
+//
+//        printResults(executionTime, routeFound);
+//        System.out.println("\nTry different location? (0 - no, 1 - yes):");
+//        boolean again = Integer.parseInt(myObj.nextLine()) == 1;
+//
+//        if (again) {
+//            main(null);
+//        }
     }
 
     public static boolean Start(Location home, boolean priority) throws SQLException, ClassNotFoundException {
