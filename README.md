@@ -14,10 +14,10 @@ Program accepts following inputs:
  - JDK*
  
 # Usage
-Install docker launcher, clone the project and run following commands:
- - "docker-compose up -d" - runs mysql server inside a docker container. Initially loads .sql dump.
- 
- - "java -jar beer-test.jar"
+Install docker launcher, clone the project and do following steps:
+ - Run "docker-compose up -d" - runs mysql server inside a docker container.
+ - Wait a bit for a server to backup from a datadump.
+ - Run "java -jar beer-test.jar". 
  
 Source code also has a GUI version, however it had some problems so I decided to stick with console.
 
