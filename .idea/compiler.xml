@@ -9,5 +9,8 @@
         <module name="satalia-beertest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="satalia-beertest" target="7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

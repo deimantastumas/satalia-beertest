@@ -1,10 +1,12 @@
-/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/MySQLConnection.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/javafx/Controller.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/models/Location.java
-/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/Parameters.java
-/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/CSVDump.java
+/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/utilities/Parameters.java
+/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/utilities/SearchingAlgorithm.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/models/Logistics.java
+/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/models/Results.java
+/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/utilities/MySQLConnection.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/models/Plane.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/App.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/javafx/GUIApp.java
 /Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/models/BreweryLocation.java
+/Users/deimantastumas/Desktop/beertest/satalia-beertest/src/main/java/com/satalia/beertest/utilities/Printer.java

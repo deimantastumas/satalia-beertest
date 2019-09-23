@@ -4,6 +4,9 @@ import com.satalia.beertest.App;
 import com.satalia.beertest.models.Location;
 import com.satalia.beertest.models.Logistics;
 import com.satalia.beertest.models.Plane;
+import com.satalia.beertest.models.Results;
+import com.satalia.beertest.utilities.MySQLConnection;
+import com.satalia.beertest.utilities.SearchingAlgorithm;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
@@ -27,14 +30,14 @@ public class Controller {
     @FXML VBox vb_visitedBrews = new VBox();
     private boolean priority = true; // true - brews, false - beer
 
-    public void findRoute() throws SQLException, ClassNotFoundException {
+    public void findRoute() throws SQLException {
         vb_collectedBeer.getChildren().clear();
         vb_visitedBrews.getChildren().clear();
         Location homeLocation = new Location((Double.parseDouble(tf_latitude.getText())),
                 Double.parseDouble(tf_longitude.getText()));
 
-        long startTime = System.nanoTime();
-        if (!App.Start(homeLocation, priority)) {
+        Results results = App.Start(homeLocation, priority);
+        if (!results.isRouteFound()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information about the trip");
             alert.setHeaderText("Trip status");
@@ -42,17 +45,16 @@ public class Controller {
             alert.showAndWait();
             return;
         }
-        long endTime   = System.nanoTime();
-        double totalTime = (double)(endTime - startTime) / 1000000000;
 
-        Plane planeData = App.getPlaneData();
+        Plane planeData = results.getPlaneData();
         Stack<Logistics> node = planeData.getVisitedBreweries();
+        MySQLConnection database = new MySQLConnection();
 
         StringBuilder text = new StringBuilder();
         text.append("[Home] -> ");
         for (Logistics a : node) {
             int brewId = a.getDestinationId();
-            text.append(String.format("[%d] - %dkm. (%s)", brewId, (int)a.getDistance(), App.database.getBreweryName(brewId)));
+            text.append(String.format("[%d] - %dkm. (%s)", brewId, (int)a.getDistance(), database.getBreweryName(brewId)));
             Text beerText = new Text(text.toString());
             beerText.setFill(Color.web("#f5f6fa"));
             beerText.setFont(Font.font ("Verdana", 11));
@@ -60,7 +62,7 @@ public class Controller {
             text = new StringBuilder();
             text.append(" -> ");
         }
-        double lastTripHome = Math.ceil(App.getDistance(planeData.getCurrentLocation(), homeLocation));
+        double lastTripHome = Math.ceil(SearchingAlgorithm.getDistance(planeData.getCurrentLocation(), homeLocation));
         String lastLine = String.format(" -> [HOME] - %dkm", (int)lastTripHome);
         Text lastText = new Text(lastLine);
         lastText.setFill(Color.web("#f5f6fa"));
@@ -89,7 +91,7 @@ public class Controller {
                 planeData.getVisitedBreweries().size(),
                 planeData.getCollectedBeerTypes().size(),
                 planeData.getFuelLeft(),
-                totalTime));
+                results.getExecutionTime()));
 
         alert.showAndWait();
     }

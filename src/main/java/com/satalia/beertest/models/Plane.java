@@ -7,6 +7,7 @@ import java.util.Stack;
 public class Plane {
     private int fuelLeft;
     private Location currentLocation;
+    private Location homeLocation;
     private HashMap<Integer, BreweryLocation> reachableArea;
     private Stack<Logistics> visitedBreweries = new Stack<>();
     private Stack<Logistics> targetNode = new Stack<>();
@@ -21,10 +22,11 @@ public class Plane {
 
     private Mode planeMode = Mode.LOOKING_FOR_AREA;
 
-    public Plane(int fuelLeft, Location currentLocation, HashMap<Integer, BreweryLocation> reachableArea) {
+    public Plane(int fuelLeft, Location currentLocation, HashMap<Integer, BreweryLocation> reachableArea, Location homeLocation) {
         this.fuelLeft = fuelLeft;
         this.currentLocation = currentLocation;
         this.reachableArea = reachableArea;
+        this.homeLocation = homeLocation;
     }
 
     public void addBear(HashSet<String> beerTypes) {
@@ -77,5 +79,9 @@ public class Plane {
 
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    public Location getHomeLocation() {
+        return homeLocation;
     }
 }
